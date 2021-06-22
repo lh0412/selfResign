@@ -1,0 +1,9 @@
+node_modules
+dist
+www
+www.zip
+package-lock.json
+*.log
+.dea
+yarn.lock
+.DS_Store

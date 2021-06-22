@@ -1,0 +1,38 @@
+{
+  "name": "emo-pc",
+  "version": "1.0.0",
+  "description": "emo pc",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.dev.config.js --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lh0412/emo.git"
+  },
+  "author": "lh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lh0412/emo/issues"
+  },
+  "homepage": "https://github.com/lh0412/emo#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-react": "^7.13.13",
+    "@babel/runtime-corejs3": "^7.13.17",
+    "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "html-webpack-plugin": "^5.3.1",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.7.3"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
