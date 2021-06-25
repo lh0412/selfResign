@@ -1,11 +1,6 @@
 import React from "react";
 import ReactDom from "react-dom";
+import App from "./container/login/index";
+import "Utils/rem.js";
 
-class App extends React.Component {
-  render() {
-    return <div>
-      <h1>hello webpack</h1>
-    </div>
-  }
-}
 ReactDom.render(<App />, document.getElementById("root"));

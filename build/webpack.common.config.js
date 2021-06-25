@@ -13,6 +13,13 @@ module.exports = {
     filename: "js/[name].[hash:5].js",
     path: path.resolve(__dirname, "../emo_pc")
   },
+  resolve: {
+    extensions: [".js", ".jsx"],
+    alias: {
+      Utils: path.resolve(__dirname, "../src/utils"),
+      Components: path.resolve(__dirname, "../src/components")
+    }
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: "Emo-PC",
