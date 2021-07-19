@@ -1,0 +1,56 @@
+header{
+  height: 120px;
+  background: pink;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:0 45px;
+  .logo{
+    width: 156px;
+    height: 45px;
+    background-image: url("./img/logo.png");
+    background-size: 100% 100%;
+  }
+  // .info{
+  //   color: #fff;
+  //   span{
+  //     margin-left: 15px;
+  //   }
+  // }
+  .info>span{ //子选择器
+    font-size: 14px;
+    color: #fff;
+    margin-left: 15px;
+  }
+}
+main{
+  display: flex;
+  // justify-content: space-between;
+  min-height: calc(100vh - 120px);
+  nav{
+    width: max-content;
+    min-height: 100%;
+    font-size: 18px;
+    .ant-menu {
+      min-height: 100%;
+      width: max-content;
+      .ant-menu-item {
+        display: block;
+        width: 220px;
+        height: 40px;
+        line-height: 40px;
+      }
+    }
+  }
+  > div {
+    height: 100%;
+  }
+  section{
+    background:greenyellow;
+    width: 100%;
+    min-height: 100%;
+  }
+  .ant-menu-inline .ant-menu-item:not(:last-child){
+    margin-bottom: 5px!important;
+  }
+}
