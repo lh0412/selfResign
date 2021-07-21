@@ -1,10 +1,10 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import Storage from "Utils/storage";
+import { connect } from "react-redux";
 
 
-function Private({ component: Component, ...rest }) {
-  const token = Storage.get("token");
+function Private(props) {
+  const { component: Component, token, ...rest } = props;
   return (
     <Route {...rest}
       render={(props) => {
@@ -20,4 +20,9 @@ function Private({ component: Component, ...rest }) {
     />
   )
 }
-export default Private;
+const mapStateToProps = state => ({
+  token: state.loginreducer.token
+})
+const mapDispatchToProps = dispatch => ({})
+const PrivateRoute = connect(mapStateToProps, mapDispatchToProps)(Private);
+export default PrivateRoute;
