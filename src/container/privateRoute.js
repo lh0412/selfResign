@@ -1,14 +1,13 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
-
+import Storage from "Utils/storage";
 
 function Private(props) {
-  const { component: Component, token, ...rest } = props;
+  const { component: Component, ...rest } = props;
   return (
     <Route {...rest}
       render={(props) => {
-        return token ? (
+        return Storage.get('token') ? (
           <Component {...props} />
         ) : (
             <Redirect
@@ -20,9 +19,4 @@ function Private(props) {
     />
   )
 }
-const mapStateToProps = state => ({
-  token: state.loginreducer.token
-})
-const mapDispatchToProps = dispatch => ({})
-const PrivateRoute = connect(mapStateToProps, mapDispatchToProps)(Private);
-export default PrivateRoute;
+export default Private;

@@ -4,9 +4,13 @@
 import reducers from "../reducers";
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import Storage from "Utils/storage";
-// const store = () => {
-//   return createStore(reducers, applyMiddleware(thunk));
-// }
-export const store = createStore(reducers, applyMiddleware(thunk));
-
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+const storageConfig = {
+  key: 'root', // 必须有的
+  storage: storage, // 缓存机制
+  blacklist: ["token"]
+}
+const myPersistReducer = persistReducer(storageConfig, reducers);
+export const store = createStore(myPersistReducer, applyMiddleware(thunk));
+export const persistor = persistStore(store);
