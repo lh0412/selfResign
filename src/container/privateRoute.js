@@ -1,14 +1,13 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import Storage from "Utils/storage";
 
-
-function Private({ component: Component, ...rest }) {
-  const token = Storage.get("token");
+function Private(props) {
+  const { component: Component, ...rest } = props;
   return (
     <Route {...rest}
       render={(props) => {
-        return token ? (
+        return Storage.get('token') ? (
           <Component {...props} />
         ) : (
             <Redirect

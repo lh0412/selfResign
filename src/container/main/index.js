@@ -5,6 +5,9 @@ import React, { lazy, Suspense, useState, useEffect } from "react";
 import { Route, Switch, Redirect, Link } from "react-router-dom";
 import Loading from "Components/Loading";
 import { Icon, Menu } from "antd";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { loginOutAction } from "../login/action";
 import "./style.less";
 const Home = lazy(() => import("../home"));
 const People = lazy(() => import("../people"));
@@ -23,6 +26,12 @@ const Main = (props) => {
     ]);
   }, [menuList.length]);
 
+
+  //退出事件
+  const fnOut = () => {
+    props.loginOutAction();
+    props.history.push("/login");
+  }
   const {
     location: { pathname }
   } = props;
@@ -34,7 +43,7 @@ const Main = (props) => {
       <div className="logo"></div>
       <div className="info">
         <span>张三</span>
-        <span>退出</span>
+        <span onClick={fnOut}>退出</span>
       </div>
     </header>
     <main>
@@ -62,4 +71,10 @@ const Main = (props) => {
     </main>
   </React.Fragment >
 }
-export default Main;
+const mapStateToProps = state => ({
+  token: state.loginreducer.token
+})
+const mapDispatchToProps = dispatch => ({
+  loginOutAction: bindActionCreators(loginOutAction, dispatch)
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
