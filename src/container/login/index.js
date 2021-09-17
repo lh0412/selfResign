@@ -9,14 +9,15 @@ import { bindActionCreators } from "redux";
 import { loginAction } from "./action";
 import "./login.less";
 function Login(props) {
+  console.log(11111, props.token);
   const [isReadirect, setIsredirect] = useState(props.token || false);
 
   const fnLogin = async () => {
     await props.loginAction({ token: "data token" }, () => { setIsredirect(true); });
   }
+  console.log(1111111, isReadirect);
   return <div className="login">
     {isReadirect ? <Redirect to={{ pathname: `/` }} /> : <div className="logo" onClick={fnLogin}></div>}
-
   </div>
 }
 const mapStateToProps = state => ({

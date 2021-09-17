@@ -9,7 +9,7 @@ import storage from 'redux-persist/lib/storage'
 const storageConfig = {
   key: 'root', // 必须有的
   storage: storage, // 缓存机制
-  blacklist: ["token"]
+  blacklist: []
 }
 const myPersistReducer = persistReducer(storageConfig, reducers);
 export const store = createStore(myPersistReducer, applyMiddleware(thunk));
