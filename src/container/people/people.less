@@ -1,0 +1,31 @@
+.people-wrap{
+  .tab-wrap{
+    height: 40px;
+    width: 30%;
+    background: #ccc;
+    display: flex;
+    justify-content: space-around;
+    line-height: 40px;
+    .actved{
+      font-size: 15px;
+      color: #000;
+      .actved::after{
+        content: '';
+        display: block;
+        height: 2px;
+        width: 30px;
+        border-radius: 1px;
+        background: red;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+    }
+    .unactive{
+      font-size: 12px;
+      color: #fff;
+    }
+  }
+}
