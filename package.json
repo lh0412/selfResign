@@ -8,15 +8,10 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.dev.config.js --open",
     "commitmsg": "commitlint -e $GIT_PARAMS"
   },
-  "config": {
-    "commitizen": {
-      "path": "cz-customizable"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
+  "lint-staged": {
+    "*.{js,jsx,react}": [
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
@@ -63,5 +58,9 @@
     "redux": "^4.1.0",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint --config commitlint.config.js -e -V"
   }
 }
